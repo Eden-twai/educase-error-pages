@@ -27,7 +27,7 @@
 主要品牌色：
 
 ```css
---primary: #505393;
+--primary: #437f81;
 ```
 
 Header / Footer 背景：
