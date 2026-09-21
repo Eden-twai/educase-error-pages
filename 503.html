@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>網站維護中｜教育百寶箱</title>
+  <style>
+    :root {
+      --bg: #f7f7fb;
+      --surface: #ffffff;
+      --text: #27283a;
+      --muted: #6d6f7f;
+      --line: #e1e2eb;
+      --primary: #505393;
+      --primary-dark: #3f427a;
+      --primary-soft: #ececf6;
+      --shell-dark: rgba(29, 36, 42, 0.9);
+      --shell-dark-line: rgba(255, 255, 255, 0.12);
+      --max-width: 1160px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: light;
+      background: var(--bg);
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 50% 24%, rgba(80, 83, 147, 0.07), transparent 25rem),
+        linear-gradient(180deg, #fdfdff 0%, var(--bg) 100%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site-shell {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      width: min(calc(100% - 48px), var(--max-width));
+      margin-inline: auto;
+    }
+
+    .site-header {
+      background-color: var(--shell-dark);
+      border-bottom: 1px solid var(--shell-dark-line);
+    }
+
+    .header-inner {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      position: relative;
+      width: 42px;
+      height: 42px;
+      flex: 0 0 42px;
+      border-radius: 11px;
+      background: linear-gradient(145deg, #8588b6, var(--primary));
+      box-shadow: 0 7px 18px rgba(0, 0, 0, .16);
+      overflow: hidden;
+    }
+
+    .brand-mark::before,
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      background: rgba(255, 255, 255, .92);
+      border-radius: 3px;
+    }
+
+    .brand-mark::before {
+      width: 24px;
+      height: 7px;
+      left: 9px;
+      top: 9px;
+    }
+
+    .brand-mark::after {
+      width: 7px;
+      height: 18px;
+      left: 9px;
+      top: 17px;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+    }
+
+    .brand-text strong {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: .03em;
+    }
+
+    .brand-text small {
+      margin-top: 4px;
+      color: rgba(255, 255, 255, .78);
+      font-size: 11px;
+      letter-spacing: .14em;
+    }
+
+    .header-link {
+      color: rgba(255, 255, 255, .92);
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .header-link:hover {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .error-page {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      padding: 64px 0 80px;
+    }
+
+    .error-content {
+      width: min(100%, 760px);
+      margin-inline: auto;
+      text-align: center;
+    }
+
+    .status-visual {
+      width: 96px;
+      height: 96px;
+      margin: 0 auto 26px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--primary-soft);
+      border: 1px solid rgba(80, 83, 147, .08);
+    }
+
+    .status-visual svg {
+      width: 64px;
+      height: 64px;
+      display: block;
+      color: var(--primary);
+    }
+
+    .status-code {
+      margin: 0;
+      color: var(--primary);
+      font-size: clamp(76px, 10vw, 112px);
+      font-weight: 800;
+      line-height: .95;
+      letter-spacing: -.065em;
+    }
+
+    .eyebrow {
+      margin: 18px 0 12px;
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .16em;
+    }
+
+    .error-content h1 {
+      margin: 0;
+      font-size: clamp(34px, 4.6vw, 52px);
+      line-height: 1.2;
+      letter-spacing: -.03em;
+    }
+
+    .description {
+      margin: 22px auto 0;
+      max-width: 640px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.9;
+    }
+
+    .actions {
+      margin-top: 32px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .button {
+      min-height: 48px;
+      padding: 0 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid transparent;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background-color .18s ease, border-color .18s ease, transform .18s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+    }
+
+    .button-primary {
+      color: #fff;
+      background: var(--primary);
+      box-shadow: 0 8px 20px rgba(80, 83, 147, .18);
+    }
+
+    .button-primary:hover {
+      background: var(--primary-dark);
+    }
+
+    .button-secondary {
+      color: var(--primary-dark);
+      background: var(--surface);
+      border-color: var(--line);
+    }
+
+    .button-secondary:hover {
+      border-color: #c7c8d8;
+      background: #fdfdff;
+    }
+
+    .button:focus-visible,
+    .header-link:focus-visible,
+    .brand:focus-visible,
+    .footer-links a:focus-visible {
+      outline: 3px solid rgba(80, 83, 147, .24);
+      outline-offset: 4px;
+    }
+
+    .help-text {
+      margin: 24px 0 0;
+      color: #818391;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .site-footer {
+      background-color: var(--shell-dark);
+      border-top: 1px solid var(--shell-dark-line);
+    }
+
+    .footer-inner {
+      min-height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      color: rgba(255, 255, 255, .76);
+      font-size: 14px;
+      letter-spacing: 0.225em;
+    }
+
+    .footer-copy {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 18px;
+    }
+
+    .footer-copy strong {
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, .82);
+      font-size: 12px;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    @media (max-width: 620px) {
+      .container {
+        width: min(calc(100% - 32px), var(--max-width));
+      }
+
+      .header-inner {
+        min-height: 72px;
+      }
+
+      .brand-mark {
+        width: 38px;
+        height: 38px;
+        flex-basis: 38px;
+      }
+
+      .brand-text strong {
+        font-size: 15px;
+      }
+
+      .brand-text small {
+        font-size: 10px;
+      }
+
+      .header-link {
+        font-size: 13px;
+      }
+
+      .error-page {
+        padding: 46px 0 58px;
+      }
+
+      .description {
+        font-size: 16px;
+      }
+
+      .actions {
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .footer-inner {
+        padding: 24px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .footer-copy {
+        flex-direction: column;
+        gap: 4px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="/welcome/" aria-label="教育百寶箱首頁">
+          <!-- <span class="brand-mark" aria-hidden="true"></span> -->
+          <span class="brand-text">
+            <strong>教育百寶箱</strong>
+          </span>
+        </a>
+        <a class="header-link" href="/welcome/">回到首頁</a>
+      </div>
+    </header>
+
+    <main class="error-page">
+      <section class="container error-content" aria-labelledby="error-title">
+        <div class="status-visual" aria-hidden="true">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="網站維護中圖示">
+  <path d="M40.975200911578604 30.511845720450015H8.669155187687224C8.771999742319586 28.49352133578987 9.029111128900496 26.500908089787817 9.389067070113775 24.469728135798622C9.929000981933683 22.091447809925203 10.623201725702145 19.867434316000324 11.793058534645283 17.733409807378774C14.119916583202524 13.452505220806618 17.835176119296683 10.16147947257097 22.488892216411166 8.55453330644028L23.67160459468335 24.95823977030236L25.869906949950142 25.639584944741774L25.561373286053048 6.356230951173501C25.88276251927919 6.009130579289273 26.38412972311196 5.752019192708364 26.846930218957603 5.662030207405042C29.186643836843892 5.199229711559404 31.577779732046345 5.212085280888449 33.917493349932634 5.6877413460631345C34.35458270712018 5.777730331366449 34.753105356320596 5.996275009960225 35.04878345088863 6.343375381844453L34.74024978699155 25.639584944741767L36.93855214225834 24.958239770302352L38.121264520530524 8.567388875769321C41.9008019032699 9.865801378002924 44.98613854224083 12.192659426560159 47.261574313481894 15.367985050834395C49.15134300485159 18.01623233261778 50.39833322976899 20.960157708969195 51.01540055756319 24.276894595862938C46.72164040166199 24.36688358116626 42.85211403361928 26.642319352407316 40.962345342249584 30.524701289779063L40.975200911578604 30.511845720450015Z" fill="currentColor"/>
+  <path d="M58.857297848280915 32.697292506387754C59.03727581888756 32.517314535781125 59.5000763147332 32.72300364504585 59.525787453391295 32.91583718498153C60.927044510257254 37.09389721692132 59.14012037351993 41.51621306611298 55.25773843614818 43.598815297418355C51.37535649877642 45.68141752872371 50.39833322976897 44.91008336898099 47.93006391859223 44.061615793264L34.66311637101726 57.54710801943273C32.901903372938015 59.3468877254991 29.85513344195423 58.87123166032441 28.389598538443046 57.00717410761281C27.20688616017086 55.40022794148213 27.21974172949991 53.047658754266806 28.723843340998236 51.6078349894137L42.6078582163674 38.39230971915491C41.36086799144997 34.124260701911794 43.27634782147776 29.53482245144254 47.364418868114235 27.606487052085715C49.47273223807769 26.616608213749206 51.78673471730588 26.590897075091117 53.99789264190172 27.272242249530525L54.34499301378596 27.529353636111434C54.42212642976023 27.593631482756667 54.35784858311501 27.902165146653754 54.33213744445691 28.017865270615165L49.511298946064834 32.83870376900724L49.48558780740674 34.50992778178315L52.403802045100086 37.38957531148934C52.90516924893286 37.45385315813458 53.61222556203035 37.44099758880553 54.15215947385027 37.363864172831256L58.85729784828094 32.71014807571677L58.857297848280915 32.697292506387754ZM31.51350188540112 52.302035733182166C30.420778492432255 52.777691798356855 30.12510039786421 54.037537592603314 30.549334185722707 54.92457187630745C30.973567973581204 55.81160616001159 32.16913592118244 56.235839947870105 33.01760349689945 55.91445071464396C34.17460473651355 55.47736135745642 34.53456067772681 54.29464897918423 34.13603802852642 53.34333684883485C33.711804240667924 52.314891302511214 32.60622527837 51.839235237336524 31.513501885401134 52.302035733182166H31.51350188540112Z" fill="currentColor"/>
+  <path d="M39.84391081062261 37.672397836728365 36.63001847836123 40.77059004502834H7.859254319957358C5.583818548716309 40.77059004502834 3.9254501052694337 38.81654350701342 4.002583521243707 36.721085706379C4.079716937217981 34.62562790574458 5.82807436596817 32.85155933833629 8.129221275867323 32.89012604632343H40.02388878122924C39.66393284001597 34.484216643125066 39.535377146725516 35.9626071159653 39.84391081062261 37.672397836728365Z" fill="currentColor"/>
+</svg>
+          <!-- <svg viewBox="0 0 64 64" role="img" aria-label="網站維護中圖示">
+            <path fill="currentColor" d="M12 39h36a4 4 0 0 1 4 4v1a4 4 0 0 1-4 4H12a4 4 0 0 1-4-4v-1a4 4 0 0 1 4-4Z" />
+            <path fill="currentColor" d="M17 37v-4c0-9 6-17 15-19v16a2 2 0 1 0 4 0V14c9 2 15 10 15 19v4H17Z" />
+            <path fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" d="M39 41 52 28" />
+            <path fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"
+              d="m48 24 5-1-1 5" />
+            <circle cx="38" cy="42" r="2.3" fill="var(--primary-soft)" />
+          </svg> -->
+        </div>
+        <p class="status-code">503</p>
+        <h1 id="error-title">網站維護中</h1>
+        <p class="eyebrow">SERVICE TEMPORARILY UNAVAILABLE</p>
+        <p class="description">教育百寶箱目前正在進行系統維護作業，部分服務暫時無法使用。<br>造成不便，敬請見諒，請稍後再重新嘗試。</p>
+        <div class="actions">
+          <a class="button button-primary" href="/welcome/">回到首頁</a>
+        </div>
+        <p class="help-text">系統恢復後即可正常使用教育百寶箱服務。</p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-copy">
+          <span>©2026 <a href="https://www.kh.edu.tw/" target="_blank">高雄市政府教育局</a></span>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+
+</html>
