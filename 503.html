@@ -52,6 +52,11 @@
       text-decoration: none;
     }
 
+    .hover-link:hover {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
     .site-shell {
       min-height: 100vh;
       display: flex;
@@ -89,6 +94,7 @@
       color: rgba(255, 255, 255, .92);
       font-size: 14px;
       font-weight: 700;
+      letter-spacing: .05em;
     }
 
     .header-link:hover {
@@ -202,7 +208,7 @@
     h1 {
       margin: 0;
       color: var(--text);
-      font-size: clamp(34px, 4.8vw, 50px);
+      font-size: clamp(34px, 4.8vw, 40px);
       line-height: 1.5;
       letter-spacing: .02em;
     }
@@ -257,15 +263,13 @@
 
     .maintenance-window__label {
       color: #fff;
-      font-size: 13px;
-      font-weight: 700;
+      font-size: 16px;
       letter-spacing: .06em;
     }
 
     .maintenance-window__time {
       color: #ffffff;
       font-size: 16px;
-      font-weight: 800;
       letter-spacing: .05em;
     }
 
@@ -418,7 +422,8 @@
   <div class="site-shell">
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="https://educase.kh.edu.tw/welcome/" aria-label="教育百寶箱首頁">教育百寶箱</a>
+        <a class="brand hover-link" href="https://educase.kh.edu.tw/welcome/" aria-label="教育百寶箱首頁"><img
+            src="/logo_square.png" style="width:40px; margin-right:12px">教育百寶箱</a>
         <a class="header-link" href="https://educase.kh.edu.tw/welcome/">回到首頁</a>
       </div>
     </header>
@@ -457,7 +462,7 @@
           </span>
           <span class="maintenance-window__text">
             <span class="maintenance-window__label">預定維護時間</span>
-            <strong class="maintenance-window__time">2026/MM/DD（週X）HH:MM ～ HH:MM</strong>
+            <strong class="maintenance-window__time">YYYY/MM/DD（週X）HH:MM ～ HH:MM</strong>
           </span>
         </div>
 
@@ -477,7 +482,8 @@
 
     <footer class="site-footer">
       <div class="container footer-inner">
-        <span>©2026 <a href="https://www.kh.edu.tw/" target="_blank" rel="noopener noreferrer">高雄市政府教育局</a></span>
+        <span>©2026 <a href="https://www.kh.edu.tw/" class="hover-link" target="_blank"
+            rel="noopener noreferrer">高雄市政府教育局</a></span>
       </div>
     </footer>
   </div>
