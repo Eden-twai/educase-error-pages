@@ -8,7 +8,7 @@
   <title>網站維護中｜教育百寶箱</title>
   <style>
     :root {
-      --bg: #f7f7fb;
+      --bg: #f6f8f7;
       --surface: #ffffff;
       --text: #437f81;
       --muted: #6d6f7f;
@@ -16,9 +16,14 @@
       --primary: #437f81;
       --primary-dark: #2a5152;
       --primary-soft: #ececf6;
+      --secondary: #efbd68;
+      --secondary-soft: #fff3dc;
+      --coral: #e88973;
+      --coral-soft: #fbe9e4;
       --shell-dark: rgba(29, 36, 42, 0.9);
       --shell-dark-line: rgba(255, 255, 255, 0.12);
       --max-width: 1160px;
+      --shadow: 0 22px 60px rgba(46, 79, 80, 0.11);
     }
 
     * {
@@ -37,8 +42,9 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at 50% 24%, rgba(80, 83, 147, 0.07), transparent 25rem),
-        linear-gradient(180deg, #fdfdff 0%, var(--bg) 100%);
+        radial-gradient(circle at 18% 20%, rgba(239, 189, 104, .12), transparent 18rem),
+        radial-gradient(circle at 82% 72%, rgba(67, 127, 129, .11), transparent 21rem),
+        linear-gradient(180deg, #fbfcfc 0%, var(--bg) 100%);
     }
 
     a {
@@ -73,68 +79,16 @@
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
       color: #fff;
-      text-decoration: none;
-    }
-
-    .brand-mark {
-      position: relative;
-      width: 42px;
-      height: 42px;
-      flex: 0 0 42px;
-      border-radius: 11px;
-      background: linear-gradient(145deg, #8588b6, var(--primary));
-      box-shadow: 0 7px 18px rgba(0, 0, 0, .16);
-      overflow: hidden;
-    }
-
-    .brand-mark::before,
-    .brand-mark::after {
-      content: "";
-      position: absolute;
-      background: rgba(255, 255, 255, .92);
-      border-radius: 3px;
-    }
-
-    .brand-mark::before {
-      width: 24px;
-      height: 7px;
-      left: 9px;
-      top: 9px;
-    }
-
-    .brand-mark::after {
-      width: 7px;
-      height: 18px;
-      left: 9px;
-      top: 17px;
-    }
-
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.15;
-    }
-
-    .brand-text strong {
       font-size: 16px;
       font-weight: 700;
       letter-spacing: .03em;
-    }
-
-    .brand-text small {
-      margin-top: 4px;
-      color: rgba(255, 255, 255, .78);
-      font-size: 11px;
-      letter-spacing: .14em;
     }
 
     .header-link {
       color: rgba(255, 255, 255, .92);
       font-size: 14px;
       font-weight: 700;
-      text-decoration: none;
     }
 
     .header-link:hover {
@@ -142,127 +96,218 @@
       text-underline-offset: 4px;
     }
 
-    .error-page {
+    .maintenance-page {
+      position: relative;
       flex: 1;
       display: flex;
       align-items: center;
-      padding: 64px 0 80px;
+      overflow: hidden;
+      padding: 56px 0 64px;
     }
 
-    .error-content {
+    .maintenance-page::before,
+    .maintenance-page::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .maintenance-card {
+      position: relative;
       width: min(100%, 760px);
       margin-inline: auto;
+      padding: 44px 52px 42px;
       text-align: center;
+      background: rgba(255, 255, 255, .94);
+      border: 1px solid rgba(67, 127, 129, .12);
+      border-radius: 3px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .maintenance-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 5px;
+      background: linear-gradient(90deg, var(--primary) 0 44%, var(--secondary) 44% 72%, var(--coral) 72% 100%);
+    }
+
+    .spark {
+      position: absolute;
+      display: block;
+      pointer-events: none;
+    }
+
+    .spark--one {
+      width: 14px;
+      height: 14px;
+      left: 42px;
+      top: 62px;
+      border: 3px solid var(--secondary);
+      border-radius: 50%;
+    }
+
+    .spark--two {
+      width: 12px;
+      height: 12px;
+      right: 54px;
+      top: 88px;
+      background: var(--coral);
+      border-radius: 3px;
+      transform: rotate(45deg);
+      opacity: .8;
+    }
+
+    .spark--three {
+      width: 34px;
+      height: 5px;
+      right: 62px;
+      bottom: 56px;
+      border-radius: 999px;
+      background: rgba(67, 127, 129, .18);
+      transform: rotate(-24deg);
     }
 
     .status-visual {
-      width: 96px;
-      height: 96px;
-      margin: 0 auto 26px;
+      width: 104px;
+      height: 104px;
+      margin: 0 auto 24px;
       display: grid;
       place-items: center;
       border-radius: 50%;
-      background: var(--primary-soft);
-      border: 1px solid rgba(80, 83, 147, .08);
+      color: var(--primary);
+      background:
+        radial-gradient(circle at 34% 28%, #ffffff 0 8%, transparent 9%),
+        var(--primary-soft);
+      border: 1px solid rgba(67, 127, 129, .12);
+      box-shadow: 0 10px 26px rgba(67, 127, 129, .10);
     }
 
     .status-visual svg {
-      width: 64px;
-      height: 64px;
+      width: 66px;
+      height: 66px;
       display: block;
-      color: var(--primary);
-    }
-
-    .status-code {
-      margin: 0;
-      color: var(--primary);
-      font-size: clamp(76px, 10vw, 112px);
-      font-weight: 800;
-      line-height: .95;
-      letter-spacing: -.065em;
     }
 
     .eyebrow {
-      margin: 18px 0 12px;
+      margin: 0 0 10px;
       color: var(--primary);
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 800;
-      letter-spacing: .16em;
+      letter-spacing: .18em;
     }
 
-    .error-content h1 {
+    h1 {
       margin: 0;
-      font-size: clamp(34px, 4.6vw, 52px);
-      line-height: 1.2;
+      color: var(--text);
+      font-size: clamp(34px, 4.8vw, 50px);
+      line-height: 1.5;
       letter-spacing: -.03em;
     }
 
     .description {
-      margin: 22px auto 0;
-      max-width: 640px;
+      max-width: 620px;
+      margin: 20px auto 0;
       color: var(--muted);
       font-size: 17px;
       line-height: 1.9;
     }
 
-    .actions {
-      margin-top: 32px;
+    .maintenance-window {
+      max-width: 560px;
+      margin: 28px auto 0;
+      padding: 17px 20px;
       display: flex;
-      flex-wrap: wrap;
+      align-items: center;
       justify-content: center;
-      gap: 12px;
+      gap: 14px;
+      color: var(--text);
+      background: linear-gradient(135deg, #9699ec, #9699ec);
+      /* border: 1px solid rgba(239, 189, 104, .36); */
+      border-radius: 3px;
+    }
+
+    .maintenance-window__icon {
+      width: 36px;
+      height: 36px;
+      flex: 0 0 36px;
+      display: grid;
+      place-items: center;
+      color: #585aa4;
+      background: rgba(255, 255, 255, .72);
+      border-radius: 10px;
+    }
+
+    .maintenance-window__icon svg {
+      width: 20px;
+      height: 20px;
+      display: block;
+    }
+
+    .maintenance-window__text {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 6px 12px;
+      text-align: left;
+    }
+
+    .maintenance-window__label {
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .06em;
+    }
+
+    .maintenance-window__time {
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: .01em;
+    }
+
+    .actions {
+      margin-top: 28px;
+      display: flex;
+      justify-content: center;
     }
 
     .button {
       min-height: 48px;
-      padding: 0 22px;
+      padding: 0 25px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      border: 1px solid transparent;
-      border-radius: 10px;
+      gap: 8px;
+      /* color: #fff; */
+      /* background: var(--primary); */
+      /* border: 1px solid var(--primary); */
+      border-radius: 3px;
+      /* box-shadow: 0 8px 20px rgba(67, 127, 129, .18); */
       font-size: 15px;
       font-weight: 700;
-      text-decoration: none;
-      transition: background-color .18s ease, border-color .18s ease, transform .18s ease;
+      text-decoration: underline;
+      transition: transform .18s ease, background-color .18s ease, box-shadow .18s ease;
     }
 
     .button:hover {
-      transform: translateY(-1px);
-    }
-
-    .button-primary {
-      color: #fff;
-      background: var(--primary);
-      box-shadow: 0 8px 20px rgba(80, 83, 147, .18);
-    }
-
-    .button-primary:hover {
-      background: var(--primary-dark);
-    }
-
-    .button-secondary {
       color: var(--primary-dark);
-      background: var(--surface);
-      border-color: var(--line);
+      /* background: var(--primary-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(67, 127, 129, .24); */
     }
 
-    .button-secondary:hover {
-      border-color: #c7c8d8;
-      background: #fdfdff;
-    }
-
-    .button:focus-visible,
-    .header-link:focus-visible,
-    .brand:focus-visible,
-    .footer-links a:focus-visible {
-      outline: 3px solid rgba(80, 83, 147, .24);
-      outline-offset: 4px;
+    .button svg {
+      width: 17px;
+      height: 17px;
     }
 
     .help-text {
-      margin: 24px 0 0;
-      color: #818391;
+      margin: 20px 0 0;
+      color: #7a8889;
       font-size: 14px;
       line-height: 1.7;
     }
@@ -277,40 +322,21 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 24px;
       color: rgba(255, 255, 255, .76);
       font-size: 14px;
-      letter-spacing: 0.225em;
+      letter-spacing: .14em;
     }
 
-    .footer-copy {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px 18px;
+    .footer-inner a {
+      color: rgba(255, 255, 255, .88);
     }
 
-    .footer-copy strong {
-      color: #fff;
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .footer-links {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .footer-links a {
-      color: rgba(255, 255, 255, .82);
-      font-size: 12px;
-      text-decoration: none;
-    }
-
-    .footer-links a:hover {
-      color: #fff;
-      text-decoration: underline;
-      text-underline-offset: 4px;
+    .button:focus-visible,
+    .header-link:focus-visible,
+    .brand:focus-visible,
+    .footer-inner a:focus-visible {
+      outline: 3px solid rgba(67, 127, 129, .30);
+      outline-offset: 4px;
     }
 
     @media (max-width: 620px) {
@@ -322,34 +348,55 @@
         min-height: 72px;
       }
 
-      .brand-mark {
-        width: 38px;
-        height: 38px;
-        flex-basis: 38px;
-      }
-
-      .brand-text strong {
+      .brand {
         font-size: 15px;
-      }
-
-      .brand-text small {
-        font-size: 10px;
       }
 
       .header-link {
         font-size: 13px;
       }
 
-      .error-page {
-        padding: 46px 0 58px;
+      .maintenance-page {
+        padding: 38px 0 46px;
+      }
+
+      .maintenance-card {
+        padding: 36px 22px 32px;
+        border-radius: 22px;
+      }
+
+      /* .spark--one { left: 20px; top: 48px; }
+      .spark--two { right: 24px; top: 74px; }
+      .spark--three { display: none; } */
+
+      .status-visual {
+        width: 94px;
+        height: 94px;
+      }
+
+      .status-visual svg {
+        width: 60px;
+        height: 60px;
       }
 
       .description {
         font-size: 16px;
       }
 
-      .actions {
+      .maintenance-window {
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 16px;
+      }
+
+      .maintenance-window__text {
         flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+      }
+
+      .maintenance-window__time {
+        font-size: 15px;
       }
 
       .button {
@@ -357,14 +404,10 @@
       }
 
       .footer-inner {
-        padding: 24px 0;
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .footer-copy {
-        flex-direction: column;
-        gap: 4px;
+        min-height: 82px;
+        font-size: 12px;
+        letter-spacing: .08em;
+        text-align: center;
       }
     }
   </style>
@@ -374,49 +417,66 @@
   <div class="site-shell">
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="/welcome/" aria-label="教育百寶箱首頁">
-          <!-- <span class="brand-mark" aria-hidden="true"></span> -->
-          <span class="brand-text">
-            <strong>教育百寶箱</strong>
-          </span>
-        </a>
-        <a class="header-link" href="/welcome/">回到首頁</a>
+        <a class="brand" href="https://educase.kh.edu.tw/welcome/" aria-label="教育百寶箱首頁">教育百寶箱</a>
+        <a class="header-link" href="https://educase.kh.edu.tw/welcome/">回到首頁</a>
       </div>
     </header>
 
-    <main class="error-page">
-      <section class="container error-content" aria-labelledby="error-title">
+    <main class="maintenance-page">
+      <section class="container maintenance-card" aria-labelledby="maintenance-title">
+
         <div class="status-visual" aria-hidden="true">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="網站維護中圖示">
-  <path d="M40.975200911578604 30.511845720450015H8.669155187687224C8.771999742319586 28.49352133578987 9.029111128900496 26.500908089787817 9.389067070113775 24.469728135798622C9.929000981933683 22.091447809925203 10.623201725702145 19.867434316000324 11.793058534645283 17.733409807378774C14.119916583202524 13.452505220806618 17.835176119296683 10.16147947257097 22.488892216411166 8.55453330644028L23.67160459468335 24.95823977030236L25.869906949950142 25.639584944741774L25.561373286053048 6.356230951173501C25.88276251927919 6.009130579289273 26.38412972311196 5.752019192708364 26.846930218957603 5.662030207405042C29.186643836843892 5.199229711559404 31.577779732046345 5.212085280888449 33.917493349932634 5.6877413460631345C34.35458270712018 5.777730331366449 34.753105356320596 5.996275009960225 35.04878345088863 6.343375381844453L34.74024978699155 25.639584944741767L36.93855214225834 24.958239770302352L38.121264520530524 8.567388875769321C41.9008019032699 9.865801378002924 44.98613854224083 12.192659426560159 47.261574313481894 15.367985050834395C49.15134300485159 18.01623233261778 50.39833322976899 20.960157708969195 51.01540055756319 24.276894595862938C46.72164040166199 24.36688358116626 42.85211403361928 26.642319352407316 40.962345342249584 30.524701289779063L40.975200911578604 30.511845720450015Z" fill="currentColor"/>
-  <path d="M58.857297848280915 32.697292506387754C59.03727581888756 32.517314535781125 59.5000763147332 32.72300364504585 59.525787453391295 32.91583718498153C60.927044510257254 37.09389721692132 59.14012037351993 41.51621306611298 55.25773843614818 43.598815297418355C51.37535649877642 45.68141752872371 50.39833322976897 44.91008336898099 47.93006391859223 44.061615793264L34.66311637101726 57.54710801943273C32.901903372938015 59.3468877254991 29.85513344195423 58.87123166032441 28.389598538443046 57.00717410761281C27.20688616017086 55.40022794148213 27.21974172949991 53.047658754266806 28.723843340998236 51.6078349894137L42.6078582163674 38.39230971915491C41.36086799144997 34.124260701911794 43.27634782147776 29.53482245144254 47.364418868114235 27.606487052085715C49.47273223807769 26.616608213749206 51.78673471730588 26.590897075091117 53.99789264190172 27.272242249530525L54.34499301378596 27.529353636111434C54.42212642976023 27.593631482756667 54.35784858311501 27.902165146653754 54.33213744445691 28.017865270615165L49.511298946064834 32.83870376900724L49.48558780740674 34.50992778178315L52.403802045100086 37.38957531148934C52.90516924893286 37.45385315813458 53.61222556203035 37.44099758880553 54.15215947385027 37.363864172831256L58.85729784828094 32.71014807571677L58.857297848280915 32.697292506387754ZM31.51350188540112 52.302035733182166C30.420778492432255 52.777691798356855 30.12510039786421 54.037537592603314 30.549334185722707 54.92457187630745C30.973567973581204 55.81160616001159 32.16913592118244 56.235839947870105 33.01760349689945 55.91445071464396C34.17460473651355 55.47736135745642 34.53456067772681 54.29464897918423 34.13603802852642 53.34333684883485C33.711804240667924 52.314891302511214 32.60622527837 51.839235237336524 31.513501885401134 52.302035733182166H31.51350188540112Z" fill="currentColor"/>
-  <path d="M39.84391081062261 37.672397836728365 36.63001847836123 40.77059004502834H7.859254319957358C5.583818548716309 40.77059004502834 3.9254501052694337 38.81654350701342 4.002583521243707 36.721085706379C4.079716937217981 34.62562790574458 5.82807436596817 32.85155933833629 8.129221275867323 32.89012604632343H40.02388878122924C39.66393284001597 34.484216643125066 39.535377146725516 35.9626071159653 39.84391081062261 37.672397836728365Z" fill="currentColor"/>
-</svg>
-          <!-- <svg viewBox="0 0 64 64" role="img" aria-label="網站維護中圖示">
-            <path fill="currentColor" d="M12 39h36a4 4 0 0 1 4 4v1a4 4 0 0 1-4 4H12a4 4 0 0 1-4-4v-1a4 4 0 0 1 4-4Z" />
-            <path fill="currentColor" d="M17 37v-4c0-9 6-17 15-19v16a2 2 0 1 0 4 0V14c9 2 15 10 15 19v4H17Z" />
-            <path fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" d="M39 41 52 28" />
-            <path fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"
-              d="m48 24 5-1-1 5" />
-            <circle cx="38" cy="42" r="2.3" fill="var(--primary-soft)" />
-          </svg> -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+            <path
+              d="M40.9752 30.5118H8.6692C8.772 28.4935 9.0291 26.5009 9.3891 24.4697C9.929 22.0914 10.6232 19.8674 11.7931 17.7334C14.1199 13.4525 17.8352 10.1615 22.4889 8.5545L23.6716 24.9582L25.8699 25.6396L25.5614 6.3562C25.8828 6.0091 26.3841 5.752 26.8469 5.662C29.1866 5.1992 31.5778 5.2121 33.9175 5.6877C34.3546 5.7777 34.7531 5.9963 35.0488 6.3434L34.7402 25.6396L36.9386 24.9582L38.1213 8.5674C41.9008 9.8658 44.9861 12.1927 47.2616 15.368C49.1513 18.0162 50.3983 20.9602 51.0154 24.2769C46.7216 24.3669 42.8521 26.6423 40.9623 30.5247L40.9752 30.5118Z"
+              fill="currentColor" />
+            <path
+              d="M58.8573 32.6973C59.0373 32.5173 59.5001 32.723 59.5258 32.9158C60.927 37.0939 59.1401 41.5162 55.2577 43.5988C51.3754 45.6814 50.3983 44.9101 47.9301 44.0616L34.6631 57.5471C32.9019 59.3469 29.8551 58.8712 28.3896 57.0072C27.2069 55.4002 27.2197 53.0477 28.7238 51.6078L42.6079 38.3923C41.3609 34.1243 43.2763 29.5348 47.3644 27.6065C49.4727 26.6166 51.7867 26.5909 53.9979 27.2722L54.345 27.5294C54.4221 27.5936 54.3578 27.9022 54.3321 28.0179L49.5113 32.8387L49.4856 34.5099L52.4038 37.3896C52.9052 37.4539 53.6122 37.441 54.1522 37.3639L58.8573 32.7101V32.6973ZM31.5135 52.302C30.4208 52.7777 30.1251 54.0375 30.5493 54.9246C30.9736 55.8116 32.1691 56.2358 33.0176 55.9145C34.1746 55.4774 34.5346 54.2946 34.136 53.3433C33.7118 52.3149 32.6062 51.8392 31.5135 52.302Z"
+              fill="currentColor" />
+            <path
+              d="M39.8439 37.6724L36.63 40.7706H7.8593C5.5838 40.7706 3.9255 38.8165 4.0026 36.7211C4.0797 34.6256 5.8281 32.8516 8.1292 32.8901H40.0239C39.6639 34.4842 39.5354 35.9626 39.8439 37.6724Z"
+              fill="currentColor" />
+          </svg>
         </div>
-        <p class="status-code">503</p>
-        <h1 id="error-title">網站維護中</h1>
-        <p class="eyebrow">SERVICE TEMPORARILY UNAVAILABLE</p>
-        <p class="description">教育百寶箱目前正在進行系統維護作業，部分服務暫時無法使用。<br>造成不便，敬請見諒，請稍後再重新嘗試。</p>
+        <h1 id="maintenance-title">網站維護中</h1>
+        <p class="eyebrow">SYSTEM MAINTENANCE</p>
+        <p class="description">
+          教育百寶箱目前正在進行系統維護作業，部分服務暫時無法使用。<br>
+          造成不便，敬請見諒。
+        </p>
+
+        <!-- 部署前請將下方時間替換為實際預定維護時段 -->
+        <div class="maintenance-window" aria-label="預定維護時間">
+          <span class="maintenance-window__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <rect x="3" y="5" width="18" height="16" rx="2"></rect>
+              <path d="M16 3v4M8 3v4M3 10h18"></path>
+            </svg>
+          </span>
+          <span class="maintenance-window__text">
+            <span class="maintenance-window__label">預定維護時間</span>
+            <strong class="maintenance-window__time">YYYY/MM/DD（週X）HH:MM ～ HH:MM</strong>
+          </span>
+        </div>
+
         <div class="actions">
-          <a class="button button-primary" href="/welcome/">回到首頁</a>
+          <a class="button" href="https://educase.kh.edu.tw/welcome/">
+            回到首頁
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"></path>
+            </svg>
+          </a>
         </div>
+
         <p class="help-text">系統恢復後即可正常使用教育百寶箱服務。</p>
       </section>
     </main>
 
     <footer class="site-footer">
       <div class="container footer-inner">
-        <div class="footer-copy">
-          <span>©2026 <a href="https://www.kh.edu.tw/" target="_blank">高雄市政府教育局</a></span>
-        </div>
+        <span>©2026 <a href="https://www.kh.edu.tw/" target="_blank" rel="noopener noreferrer">高雄市政府教育局</a></span>
       </div>
     </footer>
   </div>
