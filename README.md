@@ -3,6 +3,7 @@
 本資料夾包含教育百寶箱使用的獨立式錯誤頁面：
 
 - `503.html`：網站維護中 / 服務暫時無法使用
+- 測試網址為 `https://eden-twai.github.io/educase-error-pages/503`
 
 ## 設計原則
 
