@@ -219,6 +219,7 @@
       color: var(--muted);
       font-size: 17px;
       line-height: 1.9;
+      text-align: left;
     }
 
     .maintenance-window {
@@ -264,15 +265,26 @@
 
     .maintenance-window__label {
       color: #fff;
-      font-size: 16px;
+      font-size: 18px;
       letter-spacing: .06em;
+      font-weight: 500;
     }
 
     .maintenance-window__time {
+      display: block;
+      width: 100%;
       color: #ffffff;
       font-size: 16px;
       letter-spacing: .05em;
+      text-align: left;
+      line-height: 1.6;
+      margin-top: 10px;
     }
+.maintenance-window__date {
+  display: block;
+  text-align: justify;
+  text-align-last: justify;
+}
 
     .actions {
       margin-top: 28px;
@@ -445,11 +457,10 @@
               fill="currentColor" />
           </svg>
         </div>
-        <h1 id="maintenance-title">網站維護中</h1>
-        <p class="eyebrow">SYSTEM MAINTENANCE</p>
+        <h1 id="maintenance-title">【教育網路中心機房基礎設施汰換作業停機公告】</h1>
+        <!-- <p class="eyebrow">SYSTEM MAINTENANCE</p> -->
         <p class="description">
-          教育百寶箱目前正在進行系統維護作業，部分服務暫時無法使用。<br>
-          造成不便，敬請見諒。
+          為辦理本局教育網路中心機房基礎設施汰換作業，確保機房設備及網路服務穩定運作，預計分三階段進行設備汰換及系統維護，作業期間將暫停相關服務，各階段停機時間如下：
         </p>
 
         <!-- 部署前請將下方時間替換為實際預定維護時段 -->
@@ -463,7 +474,29 @@
                   <path d="M16 3v4M8 3v4M3 10h18"></path>
                 </svg></span>
               預定維護時間</span>
-            <strong class="maintenance-window__time">2026/11/06（週五）00:00 ～ 2026/11/09（週一）08:00</strong>
+<strong class="maintenance-window__time">
+  <span>** 第一次停機：</span>
+  <span class="maintenance-window__date">
+    115年11月6日（五）19時00分起至11月9日（一）08時00分止。
+  </span>
+</strong>
+
+<strong class="maintenance-window__time">
+  <span>** 第二次停機：</span>
+  <span class="maintenance-window__date">
+    115年11月13日（五）19時00分起至11月15日（日）08時00分止。
+  </span>
+</strong>
+
+<strong class="maintenance-window__time">
+  <span>** 第三次停機：</span>
+  <span class="maintenance-window__date">
+    115年12月4日（五）19時00分起至12月7日（一）08時00分止。
+  </span>
+</strong>
+
+
+            <!-- <strong class="maintenance-window__time">2026/11/06（週五）00:00 ～ 2026/11/09（週一）08:00</strong> -->
           </span>
         </div>
 
